@@ -26,13 +26,12 @@
             <label>Entre eixos <input id="wheelbase" type="number" min="0.1" step="0.1" value="8"><small>m</small></label>
             <label>Bitola dianteira <input id="frontTrack" type="number" min="0.1" step="0.1" value="4"><small>m</small></label>
             <label>Bitola traseira <input id="rearTrack" type="number" min="0.1" step="0.1" value="4"><small>m</small></label>
-            <label>Espaçamento do bogie <input id="bogieSpacing" type="number" min="0.1" step="0.1" value="1.2"><small>m</small></label>
             <label>Raio desejado <input id="radius" type="number" min="0.2" step="0.5" value="20"><small>m</small></label>
           </div>
           <details class="glossary">
             <summary>O que significa cada campo?</summary>
             <div class="glossary-diagrams">
-              <svg viewBox="0 0 300 265" class="diagram" role="img" aria-label="Diagrama do pórtico com as dimensões configuráveis">
+              <svg viewBox="0 0 300 170" class="diagram" role="img" aria-label="Diagrama do pórtico com as dimensões configuráveis">
                 <defs>
                   <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
                     <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
@@ -64,14 +63,6 @@
 
                 <line x1="67" y1="58" x2="67" y2="102" stroke="var(--muted)" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
                 <text x="60" y="80" text-anchor="middle" font-size="8" fill="var(--ink)" font-family="DM Mono, monospace" transform="rotate(-90 60 80)">BITOLA TRASEIRA</text>
-
-                <line x1="215" y1="66" x2="235" y2="182" stroke="var(--line)" stroke-dasharray="2,2"/>
-                <circle cx="250" cy="210" r="32" fill="var(--panel)" stroke="var(--line)"/>
-                <rect x="238" y="204" width="10" height="12" rx="2" fill="var(--accent)"/>
-                <rect x="252" y="204" width="10" height="12" rx="2" fill="var(--accent)"/>
-                <line x1="248" y1="222" x2="252" y2="222" stroke="var(--muted)" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
-                <text x="250" y="253" text-anchor="middle" font-size="8.5" fill="var(--ink)" font-family="DM Mono, monospace">ESPAÇAMENTO DO BOGIE</text>
-                <text x="250" y="262" text-anchor="middle" font-size="7.5" fill="var(--muted)" font-family="DM Mono, monospace">(2 rodas por canto)</text>
               </svg>
               <svg viewBox="0 0 300 160" class="diagram" role="img" aria-label="Diagrama do centro instantâneo de rotação e do raio desejado">
                 <rect x="165" y="80" width="90" height="36" rx="4" fill="var(--ink)" fill-opacity=".06" stroke="var(--muted)"/>
@@ -92,7 +83,6 @@
               <dt>Entre eixos</dt><dd>Distância longitudinal entre o eixo dianteiro e o traseiro (L). Entra direto na fórmula de Ackermann: quanto maior, menor o ângulo de esterçamento necessário para um mesmo raio.</dd>
               <dt>Bitola dianteira</dt><dd>Distância entre a roda esquerda e a direita do eixo dianteiro (FL ↔ FR). Define a diferença de ângulo entre a roda interna e a externa numa curva.</dd>
               <dt>Bitola traseira</dt><dd>Mesma ideia da bitola dianteira, aplicada ao eixo traseiro (RL ↔ RR).</dd>
-              <dt>Espaçamento do bogie</dt><dd>Distância entre as 2 rodas de cada canto (bogie), no sentido do movimento. Com isso o pórtico tem 8 rodas ao todo, cada uma com ângulo individual calculado.</dd>
               <dt>Raio desejado</dt><dd>Raio de curva que o centro do pórtico deve fazer. Define onde fica o ICR (centro instantâneo de rotação) e, a partir dele, o ângulo de cada roda.</dd>
             </dl>
           </details>
