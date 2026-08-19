@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador Ackermann</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div><span class="kicker">LABORATÓRIO DE DIREÇÃO</span><h1>Simulador <em>Ackermann</em></h1></div>
+      <div class="live-status"><span class="pulse"></span><span id="statusText">ACKERMANN OK</span></div>
+    </header>
+
+    <section class="workspace">
+      <aside class="control-panel">
+        <div class="panel-section">
+          <div class="section-title"><span>01</span><h2>Configuração do pórtico</h2></div>
+          <div class="field-grid">
+            <label>Comprimento <input id="length" type="number" min="0.1" step="0.1" value="14"><small>m</small></label>
+            <label>Largura <input id="width" type="number" min="0.1" step="0.1" value="6"><small>m</small></label>
+            <label>Entre eixos <input id="wheelbase" type="number" min="0.1" step="0.1" value="8"><small>m</small></label>
+            <label>Bitola dianteira <input id="frontTrack" type="number" min="0.1" step="0.1" value="4"><small>m</small></label>
+            <label>Bitola traseira <input id="rearTrack" type="number" min="0.1" step="0.1" value="4"><small>m</small></label>
+            <label>Raio desejado <input id="radius" type="number" min="0.2" step="0.5" value="20"><small>m</small></label>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <div class="section-title"><span>02</span><h2>Direção</h2></div>
+          <div class="segmented"><button class="mode active" data-mode="straight">Reta</button><button class="mode" data-mode="left">Curva esquerda</button><button class="mode" data-mode="right">Curva direita</button><button class="mode" data-mode="manual">Manual</button></div>
+          <div id="manualControls" class="manual-controls"></div>
+        </div>
+
+        <div class="panel-section">
+          <div class="section-title"><span>03</span><h2>Limites das rodas</h2></div>
+          <label class="switch-row"><input id="globalEnabled" type="checkbox"><span class="switch"></span> Usar limite global <input id="globalLimit" type="number" min="1" max="89" value="30"><b>±°</b></label>
+          <div class="limits" id="limits"></div>
+        </div>
+
+        <div class="panel-section simulation">
+          <div class="section-title"><span>04</span><h2>Simulação</h2></div>
+          <label class="speed">Velocidade <output id="speedValue">1.0 m/s</output><input id="speed" type="range" min="0" max="8" step="0.1" value="1"></label>
+          <div class="sim-buttons"><button id="start" class="primary">▶ Iniciar</button><button id="pause">Ⅱ Pausar</button><button id="reset">↻ Resetar</button></div>
+          <button id="resetConfig" class="reset-config">Restaurar configuração inicial</button>
+        </div>
+      </aside>
+
+      <section class="visual-area">
+        <div class="canvas-toolbar"><div><span class="badge">VISTA SUPERIOR 2D</span><span class="hint">Arraste para mover · roda do mouse para zoom</span></div><div class="zoom-controls"><button id="zoomOut" title="Reduzir zoom">−</button><output id="zoomValue">100%</output><button id="zoomIn" title="Aumentar zoom">+</button><button id="fit" title="Enquadrar">⌗</button></div></div>
+        <div class="canvas-wrap"><canvas id="simCanvas"></canvas><div class="axis-label x-label">X</div><div class="axis-label y-label">Y</div></div>
+        <div class="legend"><span><i class="legend-dot front"></i>Eixo dianteiro</span><span><i class="legend-dot rear"></i>Eixo traseiro</span><span><i class="legend-line"></i>Trajetória ideal</span><span><i class="legend-arrow"></i>Sentido da roda</span></div>
+        <div class="readouts">
+          <div class="readout"><span>Centro instantâneo (ICR)</span><strong id="icrValue">x 0.00 · y 0.00 m</strong></div>
+          <div class="readout"><span>Raio desejado</span><strong id="radiusValue">20.00 m</strong></div>
+          <div class="readout"><span>Condição</span><strong id="conditionValue" class="ok">ACKERMANN OK</strong></div>
+        </div>
+        <div class="wheel-table"><div class="table-head"><span>Roda</span><span>Posição X / Y</span><span>Ideal</span><span>Aplicado</span><span>Raio individual</span><span>Status</span></div><div id="wheelRows"></div></div>
+      </section>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
