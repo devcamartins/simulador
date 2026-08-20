@@ -108,6 +108,21 @@
           <div class="sim-buttons"><button id="start" class="primary">▶ Iniciar</button><button id="pause">Ⅱ Pausar</button><button id="reset">↻ Resetar</button></div>
           <button id="resetConfig" class="reset-config">Restaurar configuração inicial</button>
         </div>
+
+        <div class="panel-section">
+          <div class="section-title"><span>05</span><h2>Salvar pórtico</h2></div>
+          <label class="speed" style="margin-bottom:10px">Nome <input id="presetName" type="text" placeholder="ex: pórtico 14x6" style="flex:1;border:1px solid var(--line);padding:8px 10px;font:500 13px 'DM Mono';border-radius:2px;margin-left:8px"></label>
+          <div class="sim-buttons" style="grid-template-columns:1fr 1fr">
+            <button id="savePreset">💾 Salvar</button>
+            <button id="exportPreset">⭳ Exportar .json</button>
+          </div>
+          <select id="presetList" style="width:100%;margin-top:12px;border:1px solid var(--line);padding:8px 10px;font:500 13px 'DM Mono';border-radius:2px;background:#fff"><option value="">— pórticos salvos —</option></select>
+          <div class="sim-buttons" style="grid-template-columns:1fr 1fr;margin-top:8px">
+            <button id="loadPreset">Carregar</button>
+            <button id="deletePreset">Excluir</button>
+          </div>
+          <label class="reset-config" style="display:block;text-align:center;margin-top:10px;cursor:pointer">⭱ Importar .json<input id="importPreset" type="file" accept="application/json" style="display:none"></label>
+        </div>
       </aside>
 
       <section class="visual-area">
